@@ -13,6 +13,7 @@ from PyQt5.QtGui import QIcon
 
 from robot_renderer import RobotRenderer
 from control_panel import ControlPanel
+from robot_manager import RobotManagerDock
 
 class RobotSimulationApp(QMainWindow):
     def __init__(self):
@@ -63,6 +64,10 @@ class RobotSimulationApp(QMainWindow):
         
         # 设置分割比例
         splitter.setSizes([800, 400])
+        
+        # 创建机器人加工管理DockWidget
+        self.robot_manager_dock = RobotManagerDock(self)
+        self.addDockWidget(Qt.LeftDockWidgetArea, self.robot_manager_dock)
         
         # 创建菜单栏
         self.create_menu_bar()
