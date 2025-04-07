@@ -1,0 +1,4 @@
+PyQt5>=5.15.0
+pybullet>=3.2.1
+numpy>=1.19.0
+matplotlib>=3.3.0

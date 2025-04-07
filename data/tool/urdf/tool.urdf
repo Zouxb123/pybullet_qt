@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="tool">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 -1.22283338403804E-17 -0.0005"
+        rpy="0 0 0" />
+      <mass
+        value="0.277072235125682" />
+      <inertia
+        ixx="0.00633057031210193"
+        ixy="0"
+        ixz="0"
+        iyy="0.00646501949479452"
+        iyz="0"
+        izz="0.0127955436281906" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tool/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tool/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="tool">
+    <inertial>
+      <origin
+        xyz="0 -1.22283338403804E-17 -0.0005"
+        rpy="0 0 0" />
+      <mass
+        value="0.277072235125682" />
+      <inertia
+        ixx="0.00633057031210193"
+        ixy="0"
+        ixz="0"
+        iyy="0.00646501949479452"
+        iyz="0"
+        izz="0.0127955436281906" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tool/meshes/tool.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tool/meshes/tool.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="end"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="tool" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+</robot>

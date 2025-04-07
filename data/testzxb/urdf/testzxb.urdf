@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="testzxb">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.13309 0.00015108 0.12359"
+        rpy="0 0 0" />
+      <mass
+        value="81.392" />
+      <inertia
+        ixx="2.3667"
+        ixy="0.0041807"
+        ixz="0.40095"
+        iyy="5.0216"
+        iyz="-0.003586"
+        izz="6.4772" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="Black">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="0.003882 0.01916 -0.19"
+        rpy="0 0 0" />
+      <mass
+        value="88.977" />
+      <inertia
+        ixx="3.1934"
+        ixy="-0.63734"
+        ixz="-0.50662"
+        iyy="6.3593"
+        iyz="-0.25989"
+        izz="5.3066" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="Red">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.675"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.0030073 -0.43194 -0.23567"
+        rpy="0 0 0" />
+      <mass
+        value="95.861" />
+      <inertia
+        ixx="15.982"
+        ixy="0.0055049"
+        ixz="-0.0048965"
+        iyy="1.7586"
+        iyz="-1.7556"
+        izz="15.763" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="Red">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0.35 0 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="0.22582 0.024977 0.00024893"
+        rpy="0 0 0" />
+      <mass
+        value="76.776" />
+      <inertia
+        ixx="1.0731"
+        ixy="-0.221"
+        ixz="0.1193"
+        iyy="10.475"
+        iyz="0.00051905"
+        izz="10.381" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="Red">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0 -1.15 0"
+      rpy="0 0 0" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="3.6576E-06 0.00099016 -0.1567"
+        rpy="0 0 0" />
+      <mass
+        value="4.7756" />
+      <inertia
+        ixx="0.05835"
+        ixy="-5.5963E-08"
+        ixz="-4.7946E-08"
+        iyy="0.058855"
+        iyz="-0.0009601"
+        izz="0.02157" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="Red">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="1.2 0.041 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link5">
+    <inertial>
+      <origin
+        xyz="0.046709 5.6893E-05 0.023993"
+        rpy="0 0 0" />
+      <mass
+        value="8.4718" />
+      <inertia
+        ixx="0.082597"
+        ixy="-3.5691E-05"
+        ixz="0.013291"
+        iyy="0.11535"
+        iyz="-3.332E-05"
+        izz="0.068359" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link5.STL" />
+      </geometry>
+      <material
+        name="Red">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link6">
+    <inertial>
+      <origin
+        xyz="0.00021621 -1.5923E-15 0.20042"
+        rpy="0 0 0" />
+      <mass
+        value="0.36322" />
+      <inertia
+        ixx="0.00047945"
+        ixy="-1.6757E-18"
+        ixz="3.4593E-07"
+        iyy="0.00048434"
+        iyz="4.1798E-19"
+        izz="0.00092366" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link6.STL" />
+      </geometry>
+      <material
+        name="Red">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint6"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="link5" />
+    <child
+      link="link6" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper">
+    <inertial>
+      <origin
+        xyz="0.00071882 0.00027127 -0.50239"
+        rpy="0 0 0" />
+      <mass
+        value="72.796" />
+      <inertia
+        ixx="4.199"
+        ixy="-0.00050907"
+        ixz="-0.01984"
+        iyy="4.3428"
+        iyz="-0.0077866"
+        izz="5.8692" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/gripper.STL" />
+      </geometry>
+      <material
+        name="Grey">
+        <color
+          rgba="0.5451 0.52549 0.5098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://testzxb/meshes/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="afp"
+    type="fixed">
+    <origin
+      xyz="0 0 0.888"
+      rpy="0 0 0" />
+    <parent
+      link="link6" />
+    <child
+      link="gripper" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
