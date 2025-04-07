@@ -2,7 +2,7 @@ import numpy as np
 import pybullet as p
 from PyQt5.QtWidgets import QOpenGLWidget
 from PyQt5.QtCore import Qt, QSize
-from PyQt5.QtGui import QColor, QPainter
+from PyQt5.QtGui import QColor, QPainter, QLinearGradient, QPen, QBrush
 
 class RobotRenderer(QOpenGLWidget):
     def __init__(self, parent=None):
@@ -25,6 +25,9 @@ class RobotRenderer(QOpenGLWidget):
         self.height = 480
         self.view_matrix = None
         self.projection_matrix = None
+        
+        # 设置边框和背景
+        self.setStyleSheet("border: 2px solid #3498db; border-radius: 8px; background-color: #f8f9fa;")
         
         # 初始化渲染器
         self.init_renderer()
@@ -68,7 +71,7 @@ class RobotRenderer(QOpenGLWidget):
     
     def initializeGL(self):
         # 初始化OpenGL
-        self.setClearColor(QColor(200, 200, 200))
+        self.setClearColor(QColor(240, 240, 245))  # 使用更柔和的背景色
     
     def resizeGL(self, width, height):
         # 处理窗口大小变化
@@ -112,11 +115,24 @@ class RobotRenderer(QOpenGLWidget):
         rgb = img_arr[2]
         rgb_array = np.reshape(rgb, (self.height, self.width, 4))
         
-        # 在这里可以对图像进行处理，例如添加额外的可视化元素
-        
         # 使用QPainter绘制图像
         painter = QPainter(self)
+        
+        # 绘制渐变背景
+        gradient = QLinearGradient(0, 0, 0, self.height)
+        gradient.setColorAt(0, QColor(220, 230, 240))
+        gradient.setColorAt(1, QColor(240, 245, 250))
+        painter.fillRect(0, 0, self.width, self.height, gradient)
+        
+        # 绘制图像
         painter.drawImage(0, 0, self.convert_array_to_qimage(rgb_array))
+        
+        # 绘制边框
+        pen = QPen(QColor(52, 152, 219))
+        pen.setWidth(2)
+        painter.setPen(pen)
+        painter.drawRect(1, 1, self.width-2, self.height-2)
+        
         painter.end()
     
     def convert_array_to_qimage(self, array):

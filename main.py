@@ -20,6 +20,9 @@ class RobotSimulationApp(QMainWindow):
         self.setWindowTitle("西交机器人运动仿真软件")
         self.setGeometry(100, 100, 1200, 800)
         
+        # 设置应用程序图标
+        self.setWindowIcon(QIcon("ico/XJTU.ico"))
+        
         # 初始化PyBullet
         self.physics_client = None
         self.robot_id = None
@@ -79,7 +82,7 @@ class RobotSimulationApp(QMainWindow):
         # 文件菜单
         file_menu = menu_bar.addMenu("文件")
         
-        load_robot_action = QAction("加载机器人模型", self)
+        load_robot_action = QAction(QIcon("ico/load_robot.png"), "加载机器人模型", self)
         load_robot_action.triggered.connect(self.load_robot)
         file_menu.addAction(load_robot_action)
         
@@ -90,15 +93,15 @@ class RobotSimulationApp(QMainWindow):
         # 仿真菜单
         sim_menu = menu_bar.addMenu("仿真")
         
-        start_sim_action = QAction("开始仿真", self)
+        start_sim_action = QAction(QIcon("ico/start_simulation.png"), "开始仿真", self)
         start_sim_action.triggered.connect(self.start_simulation)
         sim_menu.addAction(start_sim_action)
         
-        stop_sim_action = QAction("停止仿真", self)
+        stop_sim_action = QAction(QIcon("ico/stop_simulation.png"), "停止仿真", self)
         stop_sim_action.triggered.connect(self.stop_simulation)
         sim_menu.addAction(stop_sim_action)
         
-        reset_sim_action = QAction("重置仿真", self)
+        reset_sim_action = QAction(QIcon("ico/reset_simulation.png"), "重置仿真", self)
         reset_sim_action.triggered.connect(self.reset_simulation)
         sim_menu.addAction(reset_sim_action)
         
@@ -119,18 +122,22 @@ class RobotSimulationApp(QMainWindow):
         
         # 添加工具栏按钮
         load_button = QPushButton("加载机器人")
+        load_button.setIcon(QIcon("ico/load_robot.png"))
         load_button.clicked.connect(self.load_robot)
         tool_bar.addWidget(load_button)
         
         start_button = QPushButton("开始仿真")
+        start_button.setIcon(QIcon("ico/start_simulation.png"))
         start_button.clicked.connect(self.start_simulation)
         tool_bar.addWidget(start_button)
         
         stop_button = QPushButton("停止仿真")
+        stop_button.setIcon(QIcon("ico/stop_simulation.png"))
         stop_button.clicked.connect(self.stop_simulation)
         tool_bar.addWidget(stop_button)
         
         reset_button = QPushButton("重置仿真")
+        reset_button.setIcon(QIcon("ico/reset_simulation.png"))
         reset_button.clicked.connect(self.reset_simulation)
         tool_bar.addWidget(reset_button)
         
@@ -195,6 +202,12 @@ class RobotSimulationApp(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
+    
+    # 加载样式表
+    with open("style.qss", "r", encoding="utf-8") as f:
+        style = f.read()
+        app.setStyleSheet(style)
+    
     window = RobotSimulationApp()
     window.show()
     sys.exit(app.exec_())
